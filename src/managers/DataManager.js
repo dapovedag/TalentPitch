@@ -13,7 +13,13 @@ class DataManagerClass {
       1995657: 'Vero_1995657',
       1995431: 'Juanjo_1995431',
       2021502: 'Lu_2021502',
-      12: 'Santiago_12'
+      12: 'Santiago_12',
+      1979789: 'Dani',
+      1990069: 'Ruth',
+      2021394: 'Paul',
+      1994339: 'Luis',
+      101916: 'SantiR',
+      1966937: 'Majo'
     };
     
     DataManagerClass.instance = this;

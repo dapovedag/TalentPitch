@@ -5,14 +5,20 @@ const LoginScreen = ({ onLogin }) => {
   const [password, setPassword] = useState('');
 
   const USERS = {
-    1990839: 'Christian',
-    87904: 'Marco',
-    140298: 'Josue',
-    2021607: 'Maria',
-    1995657: 'Vero',
-    1995431: 'Juanjo',
-    2021502: 'Lu',
-    12: 'Santiago'
+    1990839: 'Christian_1990839',
+    87904: 'Marco_87904',
+    140298: 'Josue_140298',
+    2021607: 'Maria_2021607',
+    1995657: 'Vero_1995657',
+    1995431: 'Juanjo_1995431',
+    2021502: 'Lu_2021502',
+    12: 'Santiago_12',
+    1979789: 'Dani_1979789',
+    1990069: 'Ruth_1990069',
+    2021394: 'Paul_2021394',
+    1994339: 'Luis_1994339',
+    101916: 'SantiR_101916',
+    1966937: 'Majo_1966937'
   };
 
   const handleLogin = () => {

@@ -127,6 +127,14 @@ def get_all_likes():
     
     return jsonify({'likes': likes, 'total': len(likes)})
 
+@app.route('/api/admin/init-db', methods=['GET'])
+def initialize_database():
+    try:
+        init_db()
+        return jsonify({'success': True, 'message': 'Database initialized successfully'})
+    except Exception as e:
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 if __name__ == '__main__':
     init_db()
     port = int(os.environ.get('PORT', 5000))

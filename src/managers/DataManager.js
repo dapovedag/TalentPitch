@@ -6,14 +6,14 @@ class DataManagerClass {
     
     this.currentUserData = null;
     this.userFiles = {
-      1990839: 'Christian_1990839',
-      87904: 'Marco_87904',
-      140298: 'Josue_140298',
-      2021607: 'Maria_2021607',
-      1995657: 'Vero_1995657',
-      1995431: 'Juanjo_1995431',
-      2021502: 'Lu_2021502',
-      12: 'Santiago_12',
+      1990839: 'Christian',
+      87904: 'Marco',
+      140298: 'Josue',
+      2021607: 'Maria',
+      1995657: 'Vero',
+      1995431: 'Juanjo',
+      2021502: 'Lu',
+      12: 'Santiago',
       1979789: 'Dani',
       1990069: 'Ruth',
       2021394: 'Paul',

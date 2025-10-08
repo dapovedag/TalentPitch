@@ -6,7 +6,7 @@ import json
 from datetime import datetime
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
 
@@ -34,8 +34,15 @@ def init_db():
     cur.close()
     conn.close()
 
-@app.route('/api/save-like', methods=['POST'])
+@app.route('/api/save-like', methods=['POST', 'OPTIONS'])
 def save_like():
+    if request.method == 'OPTIONS':
+        response = jsonify({'status': 'ok'})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        response.headers.add('Access-Control-Allow-Methods', 'POST, OPTIONS')
+        return response
+    
     data = request.json
     user_id = data.get('userId')
     user_name = data.get('userName')
@@ -63,8 +70,15 @@ def save_like():
     print(f'✓ Likes guardados para usuario {user_id}, algoritmo {algorithm_id}')
     return jsonify({'success': True})
 
-@app.route('/api/get-likes/<int:user_id>/<int:algorithm_id>', methods=['GET'])
+@app.route('/api/get-likes/<int:user_id>/<int:algorithm_id>', methods=['GET', 'OPTIONS'])
 def get_likes(user_id, algorithm_id):
+    if request.method == 'OPTIONS':
+        response = jsonify({'status': 'ok'})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', 'Content-Type')
+        response.headers.add('Access-Control-Allow-Methods', 'GET, OPTIONS')
+        return response
+    
     conn = get_db_connection()
     cur = conn.cursor()
     

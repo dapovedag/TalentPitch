@@ -22,7 +22,26 @@ const VideoScreen = ({ algorithmId, userId, userName, onBack }) => {
     setFontIndex(0);
     setCurrentVideoIndex(0);
     setInteractions({});
+    loadPreviousLikes();
   }, [algorithmId]);
+
+  const loadPreviousLikes = async () => {
+    try {
+      const response = await fetch(`https://talentpitch-api.onrender.com/api/get-likes/${userId}/${algorithmId}`);
+      if (response.ok) {
+        const data = await response.json();
+        setInteractions(data.interactions || {});
+      }
+    } catch (error) {
+      console.error('Error cargando likes previos:', error);
+    }
+  };
+
+  useEffect(() => {
+    if (!showIntro) {
+      loadPreviousLikes();
+    }
+  }, [showIntro]);
 
   useEffect(() => {
     if (showIntro) {

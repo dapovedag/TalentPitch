@@ -99,6 +99,34 @@ def get_likes(user_id, algorithm_id):
         'interactions': interactions
     })
 
+@app.route('/api/admin/all-likes', methods=['GET'])
+def get_all_likes():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    
+    cur.execute('''
+        SELECT user_id, user_name, algorithm_id, video_url, liked, updated_at 
+        FROM likes 
+        ORDER BY updated_at DESC
+    ''')
+    
+    results = cur.fetchall()
+    cur.close()
+    conn.close()
+    
+    likes = []
+    for row in results:
+        likes.append({
+            'userId': row[0],
+            'userName': row[1],
+            'algorithmId': row[2],
+            'videoUrl': row[3],
+            'liked': row[4],
+            'updatedAt': row[5].isoformat() if row[5] else None
+        })
+    
+    return jsonify({'likes': likes, 'total': len(likes)})
+
 if __name__ == '__main__':
     init_db()
     port = int(os.environ.get('PORT', 5000))

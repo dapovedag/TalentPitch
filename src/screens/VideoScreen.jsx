@@ -83,7 +83,7 @@ const VideoScreen = ({ algorithmId, userId, userName, onBack }) => {
 
   const saveLikeToServer = async (updatedInteractions) => {
     try {
-      const response = await fetch('http://localhost:5000/api/save-like', {
+      const response = await fetch('https://talentpitch-api.onrender.com/api/save-like', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

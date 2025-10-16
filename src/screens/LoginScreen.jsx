@@ -18,7 +18,9 @@ const LoginScreen = ({ onLogin }) => {
     2021394: 'Paul',
     1994339: 'Luis',
     101916: 'SantiR',
-    1966937: 'Majo'
+    1966937: 'Majo',
+    2020698: 'Manuel',
+    919: 'Nicolás'
   };
 
   const handleLogin = () => {

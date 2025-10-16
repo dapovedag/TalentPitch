@@ -19,7 +19,9 @@ class DataManagerClass {
       2021394: 'Paul_2021394',
       1994339: 'Luis_1994339',
       101916: 'SantiR_101916',
-      1966937: 'Majo_1966937'
+      1966937: 'Majo_1966937',
+      2020698: 'Manuel_2020698',
+      919: 'Nicolás_919'
     };
     
     DataManagerClass.instance = this;

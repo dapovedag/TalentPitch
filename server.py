@@ -66,8 +66,7 @@ def save_like():
     conn.commit()
     cur.close()
     conn.close()
-    
-    print(f'✓ Likes guardados para usuario {user_id}, algoritmo {algorithm_id}')
+
     return jsonify({'success': True})
 
 @app.route('/api/get-likes/<int:user_id>/<int:algorithm_id>', methods=['GET', 'OPTIONS'])

@@ -3,68 +3,57 @@ class DataManagerClass {
     if (DataManagerClass.instance) {
       return DataManagerClass.instance;
     }
-    
-    this.currentUserData = null;
-    this.userFiles = {
-      1990839: 'Christian_1990839',
-      87904: 'Marco_87904',
-      140298: 'Josue_140298',
-      2021607: 'Maria_2021607',
-      1995657: 'Vero_1995657',
-      1995431: 'Juanjo_1995431',
-      2021502: 'Lu_2021502',
-      12: 'Santiago_12',
-      1979789: 'Dani_1979789',
-      1990069: 'Ruth_1990069',
-      2021394: 'Paul_2021394',
-      1994339: 'Luis_1994339',
-      101916: 'SantiR_101916',
-      1966937: 'Majo_1966937',
-      2020698: 'Manuel_2020698',
-      919: 'Nicolás_919'
+
+    this.currentChallengeData = null;
+    this.challengeFiles = {
+      496243: 'Challenge_496243',
+      495897: 'Challenge_495897',
+      496237: 'Challenge_496237',
+      495101: 'Challenge_495101',
+      496320: 'Challenge_496320'
     };
-    
+
     DataManagerClass.instance = this;
   }
 
-  async loadUserData(userId) {
+  async loadUserData(challengeId) {
     try {
-      const fileName = this.userFiles[userId];
+      const fileName = this.challengeFiles[challengeId];
       if (!fileName) {
-        console.error(`Usuario ${userId} no encontrado`);
+        console.error(`Challenge ${challengeId} no encontrado`);
         return false;
       }
-      
-      const userData = await import(`./userData/${fileName}.js`);
-      this.currentUserData = userData.default;
-      console.log(`Datos cargados para ${userData.default.userName}`);
+
+      const challengeData = await import(`./userData/${fileName}.js`);
+      this.currentChallengeData = challengeData.default;
+      console.log(`Datos cargados para ${challengeData.default.challengeName}`);
       return true;
     } catch (error) {
-      console.error(`Error cargando datos del usuario ${userId}:`, error);
+      console.error(`Error cargando datos del challenge ${challengeId}:`, error);
       return false;
     }
   }
 
   getAlgorithm(algoId) {
-    if (!this.currentUserData) {
-      console.error('No hay datos de usuario cargados');
+    if (!this.currentChallengeData) {
+      console.error('No hay datos de challenge cargados');
       return null;
     }
-    return this.currentUserData.algorithms[algoId] || null;
+    return this.currentChallengeData.algorithms[algoId] || null;
   }
 
   getAllAlgorithms() {
-    if (!this.currentUserData) {
-      console.error('No hay datos de usuario cargados');
+    if (!this.currentChallengeData) {
+      console.error('No hay datos de challenge cargados');
       return {};
     }
-    return this.currentUserData.algorithms;
+    return this.currentChallengeData.algorithms;
   }
 
   getCurrentUser() {
-    return this.currentUserData ? {
-      userId: this.currentUserData.userId,
-      userName: this.currentUserData.userName
+    return this.currentChallengeData ? {
+      userId: this.currentChallengeData.challengeId,
+      userName: this.currentChallengeData.challengeName
     } : null;
   }
 }

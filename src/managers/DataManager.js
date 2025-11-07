@@ -6,11 +6,11 @@ class DataManagerClass {
 
     this.currentChallengeData = null;
     this.challengeFiles = {
-      496243: 'Challenge_496243',
+      495547: 'Challenge_495547',
+      495847: 'Challenge_495847',
       495897: 'Challenge_495897',
-      496237: 'Challenge_496237',
-      495101: 'Challenge_495101',
-      496320: 'Challenge_496320'
+      496235: 'Challenge_496235',
+      496243: 'Challenge_496243'
     };
 
     DataManagerClass.instance = this;

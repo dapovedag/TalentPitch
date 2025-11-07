@@ -13,6 +13,21 @@ const LoginScreen = ({ onLogin }) => {
       id: 495897,
       name: 'Presentador de TV',
       video: 'https://media.talentpitch.co/challenges/495897/2025-04-25-102807-VIDEO-FLOW PRESENTADORES DE TV BEIBI.mp4'
+    },
+    {
+      id: 496235,
+      name: 'Medellín tiene talento',
+      video: 'https://media.talentpitch.co/challenges/496235/whatsapp-video-2025-08-22-at-102113-am-1.mp4'
+    },
+    {
+      id: 495847,
+      name: 'Tu Historia al Cine',
+      video: 'https://media.talentpitch.co/challenges/495847/geradook.mp4'
+    },
+    {
+      id: 495547,
+      name: 'Cantantes género urbano',
+      video: 'https://media.talentpitch.co/challenges/495547/2025-05-22-164935-VIDEO-FLOW GOFAR.mp4'
     }
   ];
 

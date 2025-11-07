@@ -1,9 +1,9 @@
 import React from 'react';
 
 const AlgorithmSelector = ({ challengeVideo, onSelectAlgorithm }) => {
-  const colors = ['#3DD1E7'];
+  const colors = ['#3DD1E7', '#FF6B6B', '#4ECDC4', '#FFE66D', '#A8DADC'];
 
-  const algorithms = [1].map((num, index) => ({
+  const algorithms = [1, 2, 3, 4, 5].map((num, index) => ({
     id: num,
     color: colors[index]
   }));

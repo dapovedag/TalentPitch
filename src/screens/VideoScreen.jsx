@@ -261,7 +261,10 @@ const VideoScreen = ({ algorithmId, userId, userName, onBack }) => {
           </button>
           
           <div className="px-4 py-2 bg-white bg-opacity-80 rounded-full shadow-lg">
-            <span className="text-sm font-semibold">{currentVideoIndex + 1}/{algorithm.videos.length}</span>
+            <span className="text-sm font-semibold">
+              #{currentVideoIndex + 1} de {algorithm.videos.length}
+              {currentVideoIndex === 0 && ' (Mejor)'}
+            </span>
           </div>
         </div>
       </div>

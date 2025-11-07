@@ -34,6 +34,14 @@ def init_db():
     cur.close()
     conn.close()
 
+@app.route('/', methods=['GET'])
+def health_check():
+    return jsonify({
+        'status': 'ok',
+        'service': 'TalentPitch API',
+        'version': '1.0.0'
+    })
+
 @app.route('/api/save-like', methods=['POST', 'OPTIONS'])
 def save_like():
     if request.method == 'OPTIONS':

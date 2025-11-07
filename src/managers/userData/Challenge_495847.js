@@ -1,8 +1,6 @@
 export default {
   challengeId: 495847,
-  challengeName: 'Tu Historia al Cine
-
-Alameda y Zamora Films México',
+  challengeName: 'Tu Historia al Cine - Alameda y Zamora Films México',
   algorithms: {
     1: {
       videos: [
